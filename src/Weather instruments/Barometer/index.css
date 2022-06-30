@@ -1,0 +1,421 @@
+.animated {
+  -webkit-transition: 2s;
+  -moz-transition: 2s;
+  -ms-transition: 2s;
+  -o-transition: 2s;
+  transition: 2s;
+}
+
+.logo-img {
+  position: absolute;
+  top: calc(var(--baro-width) * 0.34);
+  width: calc(var(--baro-width) * 0.19);
+  filter: blur(0.2px);
+}
+
+.logo-text {
+  font-family: "Orbitron", sans-serif;
+  position: absolute;
+  top: calc(var(--baro-width) * 0.46);
+  font-size: calc(var(--baro-width) * 0.025);
+  filter: blur(0.2px);
+  color: var(--scale-color);
+}
+
+.city-name {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  top: calc(var(--baro-width) * 0.088);
+  width: calc(var(--baro-width) * 0.19);
+  height: calc(var(--baro-width) * 0.025);
+  border-radius: calc(var(--baro-width) * 0.005);
+  background-color: #cbcbcb;
+  color: #1f2e42;
+  font-family: "Saira", sans-serif;
+  font-size: calc(var(--baro-width) * 0.0165);
+  font-weight: 700;
+  box-shadow: inset 0px 1px 5px 0px black;
+  filter: blur(0.2px);
+}
+
+.barometer-container {
+  position: absolute;
+  background-color: transparent;
+  width: fit-content;
+  height: 100%;
+}
+
+.barometer-body {
+  top: calc((100vh - var(--baro-height)) / 2);
+  left: calc((100vw - var(--baro-width)) / 2);
+  box-sizing: border-box;
+  position: absolute;
+  background-color: var(--body-color);
+  border-radius: calc(var(--baro-height) / 2);
+  width: calc(var(--baro-width) - var(--baro-height) * 0.04);
+  height: calc(var(--baro-height) - var(--baro-height) * 0.04);
+}
+
+.barometer-body::before {
+  content: "";
+  position: absolute;
+  width: var(--baro-width);
+  height: var(--baro-height);
+  top: calc(var(--baro-height) * -0.02);
+  left: calc(var(--baro-height) * -0.02);
+  border-radius: calc(var(--baro-height) / 2);
+  background: linear-gradient(to bottom, #0057b8 50%, #ffd700 50%);
+}
+
+.barometer-screen {
+  position: absolute;
+  background-color: var(--baro-screen-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: calc(var(--baro-height) / 2);
+  box-shadow: inset 0px 5px 20px 4px black,
+    inset -20px 0px 2px 10px rgb(207 206 206),
+    inset 20px 0px 2px 10px rgb(207 206 206);
+}
+
+.temp-unit {
+  position: absolute;
+  left: calc(var(--baro-width) / 2.12);
+  top: 10%;
+  z-index: 16;
+  color: var(--scale-color);
+  font-family: var(--font-family);
+  font-size: calc(var(--baro-width) / 45);
+}
+
+.pressure-dial {
+  position: relative;
+  width: 50%;
+  height: 100%;
+}
+
+.pres-dial-label{
+  position: absolute;
+  top: calc(var(--baro-width) / 2.6);
+  right: calc(var(--baro-width) / 11);
+  width: calc(var(--baro-width) / 6);
+  height: calc(var(--baro-width) / 4.5);
+  font-size: calc(var(--baro-width) / 100);
+  font-family: var(--font-family);
+  color: var(--scale-color);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.pres-labels {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  top: calc(var(--baro-width) / 6.8);
+  right: calc(var(--baro-width) / 8.5);
+  width: calc(var(--baro-width) / 6);
+  height: calc(var(--baro-width) / 4.5);
+}
+
+.pres-label {
+  font-size: calc(var(--baro-width) / 55);
+  font-weight: 500;
+  font-family: var(--font-family);
+  color: var(--scale-color);
+  text-transform: uppercase;
+}
+
+.scale-mark-pres {
+  box-sizing: border-box;
+  top: 50%;
+  right: 7%;
+  border-radius: calc(var(--baro-width) / 120);
+  transform-origin: right center;
+  position: absolute;
+  background-color: var(--scale-color);
+}
+
+.scale-mark-pres:nth-child(odd) {
+  height: calc(var(--baro-width) / 268.5);
+  width: calc(var(--baro-width) / 40);
+}
+
+.scale-mark-pres:nth-child(even) {
+  height: calc(var(--baro-width) / 350);
+  width: calc(var(--baro-width) / 80);
+}
+
+.scale-mark-pres:nth-child(8n-9)::before {
+  content: "";
+  position: absolute;
+  top: calc(50% - 0.4px);
+  background-color: var(--scale-color);
+  height: 0.8px;
+  width: calc(var(--baro-width) / 10);
+}
+
+/*--------Pressure dial hand----------*/
+
+.pres-hand-axis {
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  right: 6.4%;
+  transform: translateY(calc(var(--baro-width) / -120));
+  transform-origin: center center;
+  width: calc(var(--baro-width) / 60);
+  height: calc(var(--baro-width) / 60);
+  background-color: var(--scale-color);
+  border-radius: calc(var(--baro-width) / 120);
+  box-shadow: 6px 3px 8px 0px rgba(0, 0, 0, 0.308);
+  z-index: 2;
+}
+
+.pres-hand {
+  position: absolute;
+  top: 50%;
+  right: 6.5%;
+  transform-origin: 91.5%;
+  width: calc(var(--baro-width) / 3.02);
+  height: 0.8px;
+  background-color: var(--hand-color);
+  box-shadow: 6px 3px 8px 0px rgba(0, 0, 0, 0.308);
+  z-index: 1;
+}
+
+.pres-hand-arrow {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 5.5%;
+  transform-origin: calc(var(--baro-width) / 3.35) center;
+  transform: translateY(calc(var(--baro-width) / -200))
+    translateX(calc(var(--baro-width) / -3.2));
+  clip-path: polygon(0 50%, 100% 100%, 100% 0);
+  border-top: calc(var(--baro-width) / 180) solid transparent;
+  border-right: calc(var(--baro-width) / 90) solid rgb(53, 129, 9);
+  border-bottom: calc(var(--baro-width) / 180) solid transparent;
+}
+
+/*------------------*/
+
+.scale-digit-pres {
+  position: absolute;
+  top: 48.2%;
+  right: 4.5%;
+  transform-origin: center center;
+  color: var(--scale-color);
+  font-size: calc(var(--baro-width) / 45);
+  font-weight: 500;
+  font-family: var(--font-family);
+  letter-spacing: -0.02em;
+}
+
+.humidity-dial {
+  position: relative;
+  width: 50%;
+  height: 100%;
+}
+
+.hum-dial-label{
+  position: absolute;
+  top: calc(var(--baro-width) / 2.6);
+  left: calc(var(--baro-width) / 6.3);
+  width: calc(var(--baro-width) / 6);
+  height: calc(var(--baro-width) / 4.5);
+  font-size: calc(var(--baro-width) / 100);
+  font-family: var(--font-family);
+  color: var(--scale-color);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.hum-labels {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  top: calc(var(--baro-width) / 6.8);
+  left: calc(var(--baro-width) / 8.5);
+  width: calc(var(--baro-width) / 6);
+  height: calc(var(--baro-width) / 4.5);
+}
+
+.hum-label {
+  font-size: calc(var(--baro-width) / 55);
+  font-weight: 500;
+  font-family: var(--font-family);
+  color: var(--scale-color);
+  text-transform: uppercase;
+}
+
+.scale-mark-hum {
+  box-sizing: border-box;
+  top: 50%;
+  left: 7%;
+  border-radius: calc(var(--baro-width) / 120);
+  transform-origin: left center;
+  position: absolute;
+  background-color: var(--scale-color);
+}
+
+.scale-mark-hum:nth-child(odd) {
+  height: calc(var(--baro-width) / 268.5);
+  width: calc(var(--baro-width) / 40);
+}
+
+.scale-mark-hum:nth-child(even) {
+  height: calc(var(--baro-width) / 350);
+  width: calc(var(--baro-width) / 80);
+}
+
+.scale-mark-hum:nth-child(8n-9)::before {
+  content: "";
+  position: absolute;
+  top: calc(50% - 0.4px);
+  background-color: var(--scale-color);
+  transform: translateX(calc(var(--baro-width) / -10));
+  height: 0.8px;
+  width: calc(var(--baro-width) / 10);
+}
+
+/*--------Humidity dial hand----------*/
+
+.hum-hand-axis {
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 6.4%;
+  transform: translateY(calc(var(--baro-width) / -120));
+  transform-origin: center center;
+  width: calc(var(--baro-width) / 60);
+  height: calc(var(--baro-width) / 60);
+  background-color: var(--scale-color);
+  border-radius: calc(var(--baro-width) / 120);
+  box-shadow: 6px 3px 8px 0px rgba(0, 0, 0, 0.308);
+  z-index: 2;
+}
+
+.hum-hand {
+  position: absolute;
+  top: 50%;
+  left: 6.5%;
+  transform-origin: 8.5%;
+  width: calc(var(--baro-width) / 3.02);
+  height: 0.8px;
+  background-color: var(--hand-color);
+  box-shadow: 6px 3px 8px 0px rgba(0, 0, 0, 0.308);
+  z-index: 1;
+}
+
+.hum-hand-arrow {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 5.5%;
+  transform-origin: calc(var(--baro-width) / 3.35) center;
+  transform: translateY(calc(var(--baro-width) / -200))
+    translateX(calc(var(--baro-width) / 3.2));
+  clip-path: polygon(0 0, 0% 100%, 100% 50%);
+  border-top: calc(var(--baro-width) / 180) solid transparent;
+  border-left: calc(var(--baro-width) / 90) solid rgb(216, 77, 13);
+  border-bottom: calc(var(--baro-width) / 180) solid transparent;
+}
+
+/*------------------*/
+
+.scale-digit-hum {
+  position: absolute;
+  top: 48.2%;
+  left: 4.5%;
+  transform-origin: left center;
+  color: var(--scale-color);
+  font-size: calc(var(--baro-width) / 45);
+  font-weight: 500;
+  font-family: var(--font-family);
+  letter-spacing: -0.02em;
+}
+
+/*--------------Thermometer-----------------*/
+
+.therm-container {
+  box-sizing: border-box;
+  position: absolute;
+  width: calc(var(--baro-width) / 8);
+  height: calc(var(--baro-width) / 2.7);
+  top: calc(var(--baro-width) / 27);
+  left: calc((100% - calc(var(--baro-width) / 8)) / 2);
+}
+
+.therm-scale-container {
+  box-sizing: border-box;
+  position: absolute;
+  top: calc(var(--baro-width) / 7.5);
+  left: calc((var(--baro-width) / 8 - var(--baro-width) * 0.0625) / 2);
+  height: calc(var(--baro-width) * 0.175);
+  width: calc(var(--baro-width) * 0.0625);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.scale-mark-temp {
+  box-sizing: border-box;
+  height: 1px;
+  width: 55%;
+  background-color: var(--scale-color);
+}
+
+.scale-mark-temp:nth-child(5n-4) {
+  height: 1.5px;
+  width: 75%;
+}
+
+.scale-mark-temp:nth-child(10n-9) {
+  height: 1.8px;
+  width: 100%;
+}
+
+.scale-digit-temp {
+  position: absolute;
+  top: -1em;
+  left: 0%;
+  transform-origin: center center;
+  color: var(--scale-color);
+  font-size: calc(var(--baro-width) / 45);
+  font-weight: 400;
+  font-family: var(--font-family);
+  letter-spacing: 1.7em;
+}
+
+.therm-tube {
+  box-sizing: border-box;
+  position: absolute;
+  width: calc(var(--baro-width) / 54);
+  height: calc(var(--baro-width) * 0.25);
+  border-radius: calc(var(--baro-width) / 108);
+  border: 4px solid var(--baro-screen-color);
+  background-color: #97a4b5;
+  top: calc(var(--baro-width) / 7.5 - var(--baro-width) * 0.0375);
+  left: calc((var(--baro-width) / 8 - calc(var(--baro-width) / 54)) / 2);
+  box-shadow: inset 0px 4px 3px 2px #0000006e;
+}
+
+.therm-line {
+  box-sizing: border-box;
+  position: absolute;
+  width: 30%;
+  height: 14%;
+  bottom: 0;
+  left: 35%;
+  background-color: #a34f44;
+}

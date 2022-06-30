@@ -1,0 +1,149 @@
+.thermometer-container {
+  position: absolute;
+  background-color: transparent;
+  width: fit-content;
+  height: 100%;
+}
+
+.thermometer-body {
+  top: calc((100vh - var(--therm-height)) / 2);
+  left: calc((100vw - var(--therm-width)) / 2);
+  box-sizing: border-box;
+  position: absolute;
+  border: calc(var(--therm-height) * 0.005) solid #a0a0a0;
+  background-color: #dddddd;
+  border-radius: calc(var(--baro-height) / 2);
+  width: var(--therm-width);
+  height: var(--therm-height);
+}
+
+.thermometer-tube {
+  position: absolute;
+  background-color: #c4c4c4;
+  width: 40px;
+  height: 500px;
+  border-radius: 20px;
+  left: calc(50% - 20px);
+  top: 15%;
+  box-shadow: 1px 1px 20px 1px #000000b8;
+}
+
+.thermometer-tube::before {
+  content: "";
+  position: absolute;
+  background-color: #535353;
+  width: 90%;
+  height: 100%;
+  border-radius: 20px;
+  left: 5%;
+  bottom: -0.4%;
+}
+
+.thermometer-tube::after {
+  content: "";
+  position: absolute;
+  background-color: #ffffff44;
+  width: 20%;
+  height: 85%;
+  border-radius: 4px;
+  left: 20%;
+  top: 8%;
+  z-index: 10;
+}
+
+.tube-inner {
+  content: "";
+  position: absolute;
+  background-color: #912a02;
+  width: 86%;
+  height: 10%;
+  border-radius: 7px;
+  left: 7%;
+  bottom: 0;
+  z-index: 10;
+}
+
+.thermometer-ball {
+  --ball-size: 82px;
+  --ball-border-width: 2px;
+  position: absolute;
+  background-color: #912a02;
+  width: var(--ball-size);
+  height: var(--ball-size);
+  border-radius: 50%;
+  border: var(--ball-border-width) solid #c4c4c4;
+  left: calc(50% - calc(var(--ball-size) / 2 + var(--ball-border-width)));
+  top: 75%;
+  box-shadow: 1px 1px 20px 1px #000000b8;
+}
+
+.thermometer-ball::after {
+  content: "";
+  position: absolute;
+  background-color: #ffffff44;
+  width: 20%;
+  height: 40%;
+  transform: rotateZ(30deg);
+  border-radius: 50%;
+  left: 10%;
+  top: 10%;
+  z-index: 11;
+}
+
+.scale-container {
+  position: absolute;
+  width: 20px;
+  height: 500px;
+  left: 63%;
+  top: 15%;
+}
+
+.scale-mark-short {
+  height: 2px;
+  width: 10px;
+  background-color: #757575;
+  margin-bottom: 22.9px;
+}
+
+.scale-mark-long {
+  height: 2px;
+  width: 20px;
+  background-color: #757575;
+  margin-bottom: 22.9px;
+}
+
+.scale-digits-container {
+  position: absolute;
+  width: 20px;
+  height: 500px;
+  left: 75%;
+  top: 14%;
+}
+
+.scale-digit {
+  color: rgb(125, 144, 146);
+  font-size: 1em;
+  margin-bottom: 32px;
+}
+
+.above-zero {
+  color: #b94112;
+}
+
+.below-zero {
+  color: #2f66ce;
+}
+
+.temperature-text {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  color: #d5dbdbb8;
+  background-color: transparent;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  z-index: 11;
+}
