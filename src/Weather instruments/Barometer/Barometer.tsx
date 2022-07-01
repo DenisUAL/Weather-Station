@@ -113,9 +113,9 @@ const Barometer: React.FC<BarometerProps> = ({ weather, cityName, optionClickHan
     <div className='barometer-container'>
       <div className='barometer-body'>
         <div className='barometer-screen'>
-          <AutocompleteInput optionClickHandler={optionClickHandler} />
           <div className='temp-unit'>°C</div>
           <div className="city-name">{cityName}</div>
+          <AutocompleteInput optionClickHandler={optionClickHandler} />
           <div className='humidity-dial'>
             <div className='hum-labels'>
               {drawHumLabels()}
