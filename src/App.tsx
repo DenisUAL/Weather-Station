@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import Barometer from './Weather instruments/Barometer';
+import Thermometer from './Weather instruments/Thermometer';
 import { getWeather, WeatherData } from './WeatherAPI/weatherAPI';
 
 export interface City {
@@ -43,6 +44,7 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
+      {/* <Thermometer {...weather} /> */}
       <Barometer optionClickHandler={(city) => setSelectedCity(city)} cityName={selectedCity.name} weather={weather} />
     </div>
   );

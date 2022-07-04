@@ -1,23 +1,12 @@
-import React, { ReactNode, useEffect, useState } from 'react';
+import React, { ReactNode } from 'react';
 import './index.css';
-import { getWeather } from '../../WeatherAPI/weatherAPI';
+import { WeatherData } from '../../WeatherAPI/weatherAPI';
 
-const Thermometer: React.FC = () => {
-  const [temp, setTemp] = useState("0");
-  const [weather, setWeather] = useState<any>({});
+const Thermometer: React.FC<WeatherData> = ({ temp }) => {
 
-  // const getTemp: () => void = async () => {
-  //   const weatherData = await getWeather();
-  //   setWeather(weatherData);
-  // }
-
-  // useEffect(() => {
-  //   getTemp();
-  // }, [])
-
-  const convertTempToHeight: (t: string) => string = (temp) => {
-    if (parseFloat(temp) === 0) return "50%"
-    return `${50 + parseFloat(temp)}%`
+  const convertTempToHeight: (t: number) => string = (temp) => {
+    if (temp === 0) return "50%"
+    return `${50 + temp}%`
   }
 
   const drawScale: () => ReactNode[] = () => {
@@ -46,11 +35,11 @@ const Thermometer: React.FC = () => {
     <div className='thermometer-container'>
       <div className='thermometer-body'>
         <div className='thermometer-tube'>
-          <div style={{ height: weather.temp ? convertTempToHeight(weather.temp) : convertTempToHeight(temp) }} className='tube-inner'></div>
+          <div style={{ height: convertTempToHeight(temp) }} className='tube-inner'></div>
         </div>
         <div className='thermometer-ball'>
           <div className='temperature-text'>
-            {weather.temp ? weather.temp : temp}
+            {temp}
           </div>
         </div>
         <div className='scale-container'>
